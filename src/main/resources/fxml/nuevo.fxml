@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Nuevo">
+   <children>
+      <Button fx:id="borrar" layoutX="339.0" layoutY="170.0" mnemonicParsing="false" text="add" onAction="#clickboton" />
+      <Button fx:id="añadir" layoutX="321.0" layoutY="425.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="55.0" text="Del" onAction="#delclick"/>
+      <ListView fx:id="lista" layoutX="172.0" layoutY="225.0" prefHeight="200.0" prefWidth="200.0" />
+      <TextField fx:id="campo" layoutX="172.0" layoutY="170.0" prefHeight="25.0" prefWidth="166.0" promptText="Escribe..." />
+   </children>
+</AnchorPane>

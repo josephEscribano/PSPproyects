@@ -14,10 +14,10 @@ public class MainFX extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        FXMLLoader loaderMenu = new FXMLLoader(getClass().getResource("/fxml/nuevo.fxml"));
+        FXMLLoader loaderMenu = new FXMLLoader(getClass().getResource("/fxml/PrimeraInterfaz.fxml"));
         AnchorPane root = loaderMenu.load();
         Scene scene = new Scene(root);
-        primaryStage.setTitle("MI APP");
+        primaryStage.setTitle("Primera App Joseph Escribano");
         primaryStage.setScene(scene);
         primaryStage.show();
         primaryStage.setResizable(false);

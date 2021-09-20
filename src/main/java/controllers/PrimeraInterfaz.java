@@ -10,10 +10,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.stream.Collectors;
 
 public class PrimeraInterfaz implements Initializable {
     private Alert alert;
@@ -23,7 +21,7 @@ public class PrimeraInterfaz implements Initializable {
     private Button Moverizq;
 
     @FXML
-    private ComboBox CBsexo;
+    private ComboBox<String> CBsexo;
     @FXML
     private DatePicker DPfecharegistro;
     @FXML
@@ -48,13 +46,13 @@ public class PrimeraInterfaz implements Initializable {
 
     public void AñadirDatos(ActionEvent actionEvent) {
         Personas persona = new Personas();
-        ServicioAddPersonas añadir = new ServicioAddPersonas();
+        ServicioAddPersonas add = new ServicioAddPersonas();
         try{
             persona.setNombre(tfnombre.getText());
             persona.setEdad(Integer.parseInt(tfEdad.getText()));
             persona.setSexo(RBmujer.isSelected());
             persona.setFechaRegistro(DPfecharegistro.getValue());
-            if (añadir.addperson(persona)){
+            if (add.addperson(persona)){
                 lvlista.getItems().add(persona);
                 alert.setContentText("La persona ha sido añadida");
             }else{

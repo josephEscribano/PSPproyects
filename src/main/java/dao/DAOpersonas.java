@@ -1,11 +1,8 @@
-package DAO;
+package dao;
 
-import Modelos.Personas;
-import lombok.Getter;
-import lombok.Setter;
+import modelos.Personas;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 
@@ -26,13 +23,6 @@ public class DAOpersonas {
 
     public void setListapersonas(List<Personas> listapersonas) {
         DAOpersonas.listapersonas = listapersonas;
-    }
-    public void filtrarmujer(){
-        listapersonas.removeIf(Personas::isSexo);
-    }
-
-    public void filtrarhombre(){
-        listapersonas.removeIf(p -> !p.isSexo());
     }
 
     public boolean addperson(Personas p){

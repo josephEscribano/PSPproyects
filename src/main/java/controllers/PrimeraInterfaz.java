@@ -1,7 +1,7 @@
 package controllers;
 
-import DAO.DAOpersonas;
-import Modelos.Personas;
+import dao.DAOpersonas;
+import modelos.Personas;
 import Servicios.personas.ServicioAddPersonas;
 import Servicios.personas.ServiciosUpdatePersonas;
 import javafx.event.ActionEvent;
@@ -12,6 +12,7 @@ import javafx.scene.control.*;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 public class PrimeraInterfaz implements Initializable {
     private Alert alert;
@@ -126,7 +127,8 @@ public class PrimeraInterfaz implements Initializable {
     }
 
     public void filtro(ActionEvent actionEvent) {
-        DAOpersonas dao = new DAOpersonas();
+        /*
+        // Esta es otra manera de hacerlo borrando los elementos y luego añadiendolos de nuevo que probe.
         List<Personas> lista = dao.getListapersonas();
         lvlista.getItems().clear();
         lvlista.getItems().addAll(lista);
@@ -136,6 +138,23 @@ public class PrimeraInterfaz implements Initializable {
         }else{
             lvlista.getItems().removeIf(personas -> !personas.isSexo());
         }
+         */
+        DAOpersonas dao = new DAOpersonas();
+        String sexo = CBsexo.getSelectionModel().getSelectedItem();
+
+        List<Personas> personas = dao.getListapersonas();
+
+        lvlista.getItems().clear();
+        lvlista.getItems().addAll(personas.stream().filter(
+                persona -> {
+                    if (sexo.equals("Hombre")){
+                        return !persona.isSexo();
+                    }else{
+                        return persona.isSexo();
+                    }
+                }
+        ).collect(Collectors.toList()));
+
 
     }
 }

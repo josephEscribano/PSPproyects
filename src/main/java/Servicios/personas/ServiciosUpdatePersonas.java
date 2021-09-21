@@ -1,7 +1,7 @@
 package Servicios.personas;
 
-import DAO.DAOpersonas;
-import Modelos.Personas;
+import dao.DAOpersonas;
+import modelos.Personas;
 
 public class ServiciosUpdatePersonas {
 
